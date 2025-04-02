@@ -4,13 +4,13 @@ import json
 registration_url = "http://20.244.56.144/evaluation-service/register"
 
 registration_payload = {
-    "email": "2205254@kiit.ac.in",  
-    "name": "Tanisha Mukherjee",  
-    "mobileNo": "6291590558",  
+    "email": "2205254@kiit.ac.in",
+    "name": "Tanisha Mukherjee",
+    "mobileNo": "6291590558",
     "githubUsername": "tanisha-0810",
-    "rollNo": "2205254",  
+    "rollNo": "2205254",
     "collegeName": "Kalinga Institute of Industrial Technology",
-    "accessCode": "nwpwrZ"  
+    "accessCode": "nwpwrZ"
 }
 
 registration_headers = {'Content-Type': 'application/json'}
@@ -40,3 +40,9 @@ try:
 
     client_id = "YOUR_CLIENT_ID_HERE"
     client_secret = "YOUR_CLIENT_SECRET_HERE"
+
+except requests.exceptions.RequestException as e:
+    print(f"Registration failed: {e}")
+    if registration_response is not None:
+        print(f"Status code: {registration_response.status_code}")
+        print(f"Response text: {registration_response.text}")
